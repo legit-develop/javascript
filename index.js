@@ -1,23 +1,30 @@
-const menu = [
+const candidates = [
   {
-    name: "pancakes",
-    category: "breakfast",
+    name: "Steve Hamm",
+    language: "Java",
   },
   {
-    name: "burger",
-    category: "lunch",
-  },
-  {
-    name: "steak",
-    category: "dinner",
-  },
-  {
-    name: "bacon",
-    category: "breakfast",
+    name: "Charlie Mann",
+    language: "python",
   },
 ];
 
-const category = menu.map((items) => items.category);
-console.log(category);
-const uniCategory = [...new Set(category)];
-console.log(uniCategory);
+const name = candidates.map((item) => item.name);
+const programLang = candidates.map((item) => item.language);
+const outputEl = document.getElementById("result");
+const langOutputEl = document.getElementById("lang-output");
+console.log(langOutputEl);
+
+outputEl.innerHTML = name
+  .map((Item) => {
+    return `
+  <ul>
+   <li>${Item}</li>
+  </ul>
+  `;
+  })
+  .join("");
+
+langOutputEl.innerHTML = programLang
+  .map((item) => `<ul><li>${item}</li></ul>`)
+  .join("");
